@@ -26,8 +26,7 @@ If your system does not meet the minimum requirements, the welcome screen displa
 
 The **Location** screen lets you configure:
 
-- Your region.
-- Your time zone.
+- **Region** and **Zone**: Your time zone. Click on your approximate location on the map to configure the region and zone values automatically.
 - The system language.
 - The locales of your system (date and number formatting, character encoding settings, and so on).
 
@@ -45,32 +44,27 @@ Use the text area on screen to test your keyboard settings.
 The **Partitions** screen lets you configure:
 
 - The drive that will be used as the installation target for Solus.
-- Whether Solus will use the entire drive or share space with another operating system (dual-boot).
-- The partitioning scheme of the drives.
+- How the installer will partition your drive.
 - Whether you want to encrypt your Solus install.
 - The filesystem Solus will use.
 - Whether Solus will use a swap partition.
 
-### Installation options
-The partitions screen provides multiple ways to install Solus on your computer.
+### Partitioning options
+The installer provides multiple ways to install Solus on your computer.
 
-- **Install alongside**: Shrinks the largest partition in the target drive and install Solus there.
-- **Replace a partition**: Installs solus in the partition you select. This is useful if you already created a partition for Solus.
+- **Install alongside**: Shrinks the largest partition in the target drive and installs Solus there.
+- **Replace a partition**: Installs Solus in the partition you select. This is useful if you already created a partition for Solus.
 - **Erase disk**: Deletes the contents of the selected drive and installs Solus as the only operating system.
 - **Manual partitioning**: If you are an advanced user, you can define your preferred partition scheme to install Solus.
 
-   **Note:** Legacy (BIOS) must use MBR partition table while Unified EFI (UEFI) must use GPT partition table.
+## Users
+![Users screen](users.png)
 
-## UEFI
+The **Users** screen lets you configure the admin user account of your system. You can configure more user accounts after Solus installs on your PC.
 
-If you are using a system with UEFI, you may need to create a EFI System Partition, also referred to as an ESP. This is not necessary if you are enabling Solus to install onto the entire disk.
+## Summary
+![Summary screen](summary.png)
 
-To create an EFI System Partition, open up GParted and create a FAT32 partition that is 1GB in size. Next, right-click on the partition and click Manage Flags. On the Manage Flags section, enable the `boot` and `esp` flags.
+The **Summary** screen displays an overview of the options you selected to install Solus.
 
-**Notes:**
-
-- Your system must be booted using Unified EFI (UEFI) mode, as opposed to a "legacy (BIOS) mode".
-- Your disk is required to be GPT formatted.
-- If you cannot see your SSD drive, set the SATA configuration to AHCI.
-
-## Install Solus alongside your current operating system (dual-boot)
+If you want to change any options, click **Back**. If you want to begin the installation process, click **Install**.
