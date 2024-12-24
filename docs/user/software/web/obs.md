@@ -5,11 +5,9 @@ summary: A quick start guide to OBS on Solus
 
 # Open Broadcaster Software (OBS)
 
-This article covers the installation of OBS Studio as well as the use of third-party plugins.
-
 ## Installation
 
-To install OBS Studio, either open up the Software Center and type `obs-studio` into the Search section or run the following command:
+Install OBS studio using the software center or by executing the following command: 
 
 ```bash
 sudo eopkg install obs-studio
@@ -17,20 +15,32 @@ sudo eopkg install obs-studio
 
 ## Virtual camera
 
-OBS includes a virtual webcam device which can be used to send your OBS stream to video conferencing programs. In order to use this on Solus, you must first install from our repository a separate kernel module that is responsible for creating the necessary "loopback" device. There are two versions of this software available in the repository, you must choose the version that corresponds to the kernel you have installed.
+OBS includes a virtual webcam device you can use to send your OBS stream to video conferencing programs. To use this on Solus you need to install an additional kernel module. 
 
-To find out which kernel is installed, run:
+To install the kernel module:
 
-```bash
-uname -r
-```
+1. Check which kernel you are using:
 
-This should return a version which ends in `.current` or `.lts`.
+  ```bash
+  uname -r
+  ```
+  
+  The system displays your kernel version. The kernel version finishes in `.current` or `.lts`.
+  
+2. Install the module that corresponds to your kernel version.
 
-- If you are running the "current" kernel, install `v4l2loopback-current`: `sudo eopkg install v4l2loopback-current`
-- If you are running the "lts" kernel, install `v4l2loopback`: `sudo eopkg install v4l2loopback`
+  - If you are running the "current" kernel, run: 
+    ```bash
+    sudo eopkg install v4l2loopback-current
+    ```
+  - If you are running the "lts" kernel, run: 
+  ```bash
+  sudo eopkg install v4l2loopback
+  ```
 
-Once v4l2loopback is installed, reboot your computer. Next time you start OBS, it will prompt you for your password to set up v4l2loopback. After that, the virtual camera should be available as a webcam in other programs.
+3. Restart your computer.
+
+Next time you start OBS, it will ask your password to set up `v4l2loopback`. After that, the virtual camera should be available as a webcam in other programs.
 
 ## Plugins
 
