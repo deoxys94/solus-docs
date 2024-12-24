@@ -1,0 +1,37 @@
+name: "Style check with Vale"
+on:
+  pull_request:
+
+jobs:
+  style_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: "Check which files need review"
+        id: check_changed_files
+        shell: bash
+        run: |
+          folder_path=$(realpath "$GITHUB_WORKSPACE")
+          cd "$folder_path" || {
+              echo "Failed to change to directory: $folder_path" >&2
+              exit 1
+          }
+
+          # Save the result to a variable first
+          filesModifiedInPr=$(git diff --name-only HEAD^1 HEAD | jq -R -s -c 'split("\n") | map(select(length > 0))')
+
+          # Set the output
+          echo "files=$filesModifiedInPr" >> $GITHUB_OUTPUT
+
+          # Print the result
+          echo "$files"
+      - uses: errata-ai/vale-action@v2.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: ${{ steps.check_changed_files.outputs.files }}
+          reporter: github-pr-check
+          filter_mode: file
+          fail_on_error: true
+          level: info
