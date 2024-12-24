@@ -47,11 +47,11 @@ Check out [this issue][3] if you encounter such snaps.
 Running `sudo unsnap auto` will migrate as many snaps to Flatpak as possible.
 It will also uninstall `snapd` if all snaps were migrated.
 
-If `unsnap` cannot find an equivalent Flatpak for a snap, you can:
+If `unsnap` cannot find an equivalent Flatpak for a snap, you can try to:
 
-- Search for an equivalent Flatpak manually, and [report it][3] if possible.
-- Install an equivalent tool from the package manager if possible.
-- Uninstall the snap manually if it is not needed.
+- Search for an equivalent Flatpak manually, and [report it][3].
+- Install an equivalent tool from the package manager
+- Uninstall the snap if it is not needed.
 
 It is possible to rerun `sudo unsnap auto` to finish removing `snapd`.
 
