@@ -11,3 +11,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           files: docs/
+          reporter: github-pr-check
+          fail_on_error: true
+          level: info
