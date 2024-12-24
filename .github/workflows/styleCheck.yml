@@ -3,17 +3,11 @@ on:
   pull_request:
 
 jobs:
-  spellcheck:
+  style_check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: errata-ai/vale-action@v2.1.1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          files: |
-            **/*.{md,mdx}
-          inline: warning
-          strict: false
-          incremental_files_only: true
-          config: ".cspell.json"
-          verbose: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: docs/
