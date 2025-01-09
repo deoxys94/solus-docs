@@ -2,9 +2,10 @@
 
 ## Solus installations
 
-- Solus does not collect or store data from user's machines.
-- Solus does not use telemetry or automatic error reporting.
-- Some packages may include their own built-in telemetry (examples: Firefox, Steam). Solus cannot control data collected in this way. These packages may allow you to disable this telemetry.
+- Solus:
+  - Does not collect or store data from your device.
+  - Does not use telemetry or automatic error reporting.
+- Some packages may include their own built-in telemetry. Solus cannot control data collected in this way. These packages may allow you to disable this telemetry.
 
 ## Solus forum (discuss.getsol.us)
 
