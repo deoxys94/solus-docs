@@ -7,7 +7,7 @@ summary: A quick start guide to OBS on Solus
 
 ## Installation
 
-Install OBS studio using the software center or by executing the following command: 
+Install OBS studio using the software center or by executing the following command:
 
 ```bash
 sudo eopkg install obs-studio
@@ -15,28 +15,29 @@ sudo eopkg install obs-studio
 
 ## Virtual camera
 
-OBS includes a virtual webcam device you can use to send your OBS stream to video conferencing programs. To use this on Solus you need to install an additional kernel module. 
+OBS includes a virtual webcam device you can use to send your OBS stream to video conferencing programs. To use this on Solus you need to install an additional kernel module.
 
 To install the kernel module:
 
-1. Check which kernel you are using:
+1. Check which kernel you are using.
 
-  ```bash
-  uname -r
-  ```
-  
-  The system displays your kernel version. The kernel version finishes in `.current` or `.lts`.
-  
+```bash
+uname -r
+```
+
+The system displays your kernel version. The kernel version finishes in `.current` or `.lts`.
+
 2. Install the module that corresponds to your kernel version.
 
-  - If you are running the "current" kernel, run: 
-    ```bash
-    sudo eopkg install v4l2loopback-current
-    ```
-  - If you are running the "lts" kernel, run: 
+- If you are running the "current" kernel, run:
   ```bash
-  sudo eopkg install v4l2loopback
+  sudo eopkg install v4l2loopback-current
   ```
+- If you are running the "lts" kernel, run:
+
+```bash
+sudo eopkg install v4l2loopback
+```
 
 3. Restart your computer.
 
@@ -44,7 +45,7 @@ Next time you start OBS, it will ask your password to set up `v4l2loopback`. Aft
 
 ## Plugins
 
-All OBS Studio plugins should be installed into their own respective folders inside the `~/.config/obs-studio/plugins` folder. If this folder does not exist for you, you'll need to create it before copying plugins into it.
+You must install all OBS Studio plugins in their own folders inside the `~/.config/obs-studio/plugins` folder. Create the folder if it doesn't exist.
 
 When installing a plugin, the directory tree should look something like the following:
 
