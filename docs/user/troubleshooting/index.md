@@ -1,50 +1,50 @@
 ---
 title: Troubleshooting
-summary: Basic troubleshooting for some of the most common Solus problems.
+summary: Troubleshooting guides for common Solus problems
 ---
 
-# Troubleshooting Common Issues
+This section provides troubleshooting guides to help you diagnose and fix common problems with Solus on your own.
 
-This guide provides some basic troubleshooting instructions for when you have an issue in Solus. Before reporting bugs, it is important to check that your Solus installation is not missing files, or suffering from a corrupted disk. You should also ensure your system is fully up to date as the bug may have already been fixed.
+## Before you begin
 
-First, perform a full system update on command line with `sudo eopkg up` (or using the Software Center).
+Before you start troubleshooting, update your system and check for broken packages. These steps often fix common problems:
 
-Next, validate that packages are installed correctly and aren't missing files. Run this once, it will take some time. If there are no broken packages on your system, there will be no output. Otherwise, you will see packages be reinstalled.
+1. Update your system to the latest version.
 
-```bash
-sudo eopkg check | grep Broken | awk '{print $4}' | xargs -r sudo eopkg it --reinstall
-```
+   To update your system you can:
 
-Reboot the system and see if the issue is resolved.
+   - Open a terminal and run the following command:
+
+   ```bash
+   sudo eopkg up
+   ```
+
+   - Open the **Software Center** to check for updates.
+
+1. Check for and reinstall broken packages by running the following command:
+
+   ```bash
+    sudo eopkg check | grep Broken | awk '{print $4}' | xargs -r sudo eopkg it --reinstall
+   ```
+
+   Allow some time for the process to finish. If the command does not display anything on screen, your system has no broken packages.
+
+1. Restart your system.
+1. Verify if the problem still persists.
+
+If the problem persists after performing the update and check, see the troubleshooting categories below that best match your issue.
+
+## Troubleshooting Categories
+
+Refer to the following table to find troubleshooting guides matching your specific issue type:
+
+| Category                                   | Description                                                                                 |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| [Boot rescue](./boot-rescue/index.md)      | Boot and startup problems such as emergency shells or Solus disappearing from the boot menu |
+| [Installation problems](./installation.md) | Problems encountered when installing Solus                                                  |
+| [Plasma troubleshooting](plasma.mdx)       | Problems specific to the Solus Plasma edition                                               |
 
 ## Issues with Software Center or eopkg
-
-### Can't install updates
-
-If eopkg is interrupted, the database may become corrupted. When updating you will see a message similar to:
-
-`30973, 'BDB0087 DB_RUNRECOVERY: Fatal error, run database recovery - BDB0061 PANIC: Invalid argument'`
-
-To run database recovery, run `sudo eopkg rdb` in the terminal and then updates should function correctly.
-
-### `eopkg check` shows broken packages
-
-`eopkg check` checks the sha256 checksums of files on disk versus what was originally installed by the original `.eopkg` file. In some cases (for example `.pyc` files), these files will be modified in the normal operation of Solus. If after reinstalling a package it remains broken, then it's likely nothing to worry about (there are no exceptions made in `eopkg check` for files that are expected to change from use). When reinstalling broken packages, (per above) it only needs to be run once.
-
-## Updated system and having issues
-
-### Broken UI with Chromium applications
-
-There is an [upstream bug](https://issues.chromium.org/issues/40267041) with Chromium that causes it to try to use an invalid shader cache instead of rebuilding it, crashing the GPU process. The issue is now fixed in Chromium, but it may take some time for applications to update their Chromium version.
-
-To fix applications exhibiting this problem, run these commands to remove the shader cache:
-
-```bash
-find ~/.cache -name GPUCache -exec rm -rv {} +
-find ~/.config -name GPUCache -exec rm -rv {} +
-```
-
-And restart the application.
 
 ### Boot into previous kernel
 

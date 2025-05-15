@@ -1,9 +1,7 @@
 ---
-title: Installation Issues
+title: Installation problems
 summary: Troubleshooting the Solus installation process
 ---
-
-# Installation Issues
 
 This article covers various issues that you may come across during installation of Solus.
 

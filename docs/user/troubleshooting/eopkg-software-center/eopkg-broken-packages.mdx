@@ -1,0 +1,25 @@
+# `eopkg check` reports broken packages
+
+## Cause
+
+The `eopkg check` command verifies your installed packages by comparing the checksums of files on the disk against their original values from the installation packages.
+
+Some files change during normal Solus usage. Since `eopkg check` doesn't make exceptions for these expected modifications, it may report packages with such files as broken, even when they function correctly.
+
+## Procedure
+
+1. Reinstall the broken package:
+   
+   ```bash
+   sudo eopkg install --reinstall PACKAGE_NAME
+   ```
+
+   For example:
+
+   ```bash
+   sudo eopkg install --reinstall firefox
+   ```
+
+1. Check if the package works normally.
+
+If the issue persists, or if the package functions normally, the problem is likely due to expected file changes and no further action is required.

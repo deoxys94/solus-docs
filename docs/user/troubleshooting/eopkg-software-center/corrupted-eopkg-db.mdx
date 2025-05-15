@@ -1,0 +1,19 @@
+# Updates fail with database error: BDB0087 DB_RUNRECOVERY
+
+## Cause
+
+The package database might get corrupted if a software update is interrupted, typically showing the following error when trying to update the system:
+
+```
+30973, 'BDB0087 DB_RUNRECOVERY: Fatal error, run database recovery - BDB0061 PANIC: Invalid argument
+```
+
+## Procedure
+
+- Recover the database by running the following command:
+
+  ```bash
+  sudo eopkg rdb
+  ```
+
+  After the process finishes, try to update your system again.

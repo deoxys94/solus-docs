@@ -1,9 +1,7 @@
 ---
-title: Boot Rescue
+title: Boot rescue
 summary: Troubleshooting the boot process for Solus
 ---
-
-# Boot Rescue
 
 When your Solus system fails to start up, several common issues might be the cause:
 
